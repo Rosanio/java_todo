@@ -9,3 +9,10 @@
   </div>
   <button type="submit" class="btn btn-info">Add task</button>
 </form>
+
+
+<ul>
+#foreach ($task in $tasks)
+  <li>$task.getDescription()</li>
+#end
+</ul>
