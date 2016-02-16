@@ -1,8 +1,11 @@
-<h1></h1>
-<form action='/result'>
+<h1>Task list!</h1>
+
+<p>Add a new Task:</p>
+
+<form action='/result' method="post">
   <div class="form-group">
-    <label for=""></label>
-    <input id="textInput" name="textInput" class="form-control" type="text">
+    <label for="description">Task Description</label>
+    <input id="description" name="description" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn btn-info">Submit</button>
+  <button type="submit" class="btn btn-info">Add task</button>
 </form>

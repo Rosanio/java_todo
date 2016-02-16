@@ -14,17 +14,26 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/result", (request, response) -> {
-      String textInput = request.queryParams("textInput");
-
-      //call business logic functions here
-      String result = textInput;
-
-      HashMap model = new HashMap();
+    post("/result", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String description = request.queryParams("description");
+      Task newTask = new Task(description);
+      request.session().attribute("task", newTask);
       model.put("template", "templates/output.vtl");
-      model.put("result", String.format(result));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    // get("/result", (request, response) -> {
+    //   String textInput = request.queryParams("textInput");
+    //
+    //   //call business logic functions here
+    //   String result = textInput;
+    //
+    //   HashMap model = new HashMap();
+    //   model.put("template", "templates/output.vtl");
+    //   model.put("result", String.format(result));
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
       //additional pages would go here
   }
 
